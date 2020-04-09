@@ -1,2 +1,17 @@
 {
+    "sqltools.connections": [
+        {
+            "database": "bookstore",
+            "dialect": "PostgreSQL",
+            "name": "postgres",
+            "password": "hamoody1!",
+            "port": 1365,
+            "server": "localhost",
+            "username": "postgres"
+        }
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "postgresql-42.2.12.jar"
+    ]
 }
