@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DBConnection { 
     private Connection Connection;
@@ -12,9 +13,8 @@ public class DBConnection {
         String url = "jdbc:postgresql://192.168.0.22:1365/bookstore";
         String username  = "postgres";
         String password  = "hamoody1!";
-        DBConnection db= new DBConnection();
-        db.dbconnection(url,username,password);
-
+        Connection db = DriverManager.getConnection(url,username,password);
+        Statement st = db.createStatement();
         String input;
         Scanner obj = new Scanner(System.in);
 
