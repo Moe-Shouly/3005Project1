@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class DBConnection { 
     private Connection Connection;
-    public static void main(String[] args){
+    public static void main(String[] args) throws SQLException {
 
         String url = "jdbc:postgresql://192.168.0.22:1365/bookstore";
         String username  = "postgres";
@@ -19,10 +19,6 @@ public class DBConnection {
         Scanner obj = new Scanner(System.in);
 
         System.out.println("Hey! Welcome to our book store.");
-        System.out.println("If you want to change the database please enter D in this menu if not enter S.");
-        input = obj.nextLine().toLowerCase();
-        if(("d").compareTo(input) == 0){db.changedb(obj);}
-        
         System.out.println("Please enter C if your a customer or O if your a owner");
         input = obj.nextLine().toLowerCase();
         if(("o").compareTo(input) == 0){
@@ -36,11 +32,11 @@ public class DBConnection {
         }
         else if(("c").compareTo(input) == 0){
             Customer customer = new Customer();
-            customer.getdb(db);
+            customer.getst(st);
             while(true){
                 System.out.println("Please enter s if your want to shop and t if you want to track your order");
                 input = obj.nextLine().toLowerCase();
-                if(("s").compareTo(input) == 0){customer.search();}
+                if(("s").compareTo(input) == 0){customer.run();}
                 else if(("t").compareTo(input) == 0){customer.trackorder();}
             }
         }
@@ -54,8 +50,5 @@ public class DBConnection {
             Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE,null,e);}
         return Connection;
     
-    }
-    public void changedb(Scanner obj){
-
     }
 }

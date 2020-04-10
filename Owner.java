@@ -1,3 +1,5 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
@@ -40,9 +42,18 @@ public class Owner {
                 for(int i = 0; i < 8;++i){
                     details[i] = obj.nextLine();
                 }
-           ResultSet result = st.executeQuery("Input INTO Book (Book_ISBN,BookName,Price,Author,edition,Genre,)");
+                try {
+                    ResultSet result = st.executeQuery("Input INTO Book (Book_ISBN,BookName,Price,Author,edition,Genre,)");
+                    
+                } catch (SQLException e) {
+                    //TODO: handle exception
+                }
+                break;
         }
-        else if(("b").compareTo(input) == 0){}
+        else if(("b").compareTo(input) == 0){
+
+            break;
+        }
         }
 
 
